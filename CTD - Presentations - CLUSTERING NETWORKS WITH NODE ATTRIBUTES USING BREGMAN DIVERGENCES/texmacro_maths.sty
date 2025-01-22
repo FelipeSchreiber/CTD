@@ -1,0 +1,334 @@
+\RequirePackage{xcolor}
+\RequirePackage{xspace}
+\RequirePackage{comment}
+\RequirePackage{booktabs}
+% COLOR DEFINITIONS
+\definecolor{aaltoblue}{cmyk}{100, 39, 0, 0}
+\definecolor{defcolor}{rgb}{0,0,1}
+
+% BINARY RELATIONS
+\newcommand{\lesim}{\lesssim}
+\newcommand{\gesim}{\gtrsim}
+\newcommand{\prll}{\ll_{\pr}}
+\newcommand{\prgg}{\gg_{\pr}}
+\newcommand{\eqd}{\stackrel{\rm d}{=}}
+\newcommand{\weqd}{\ \stackrel{\rm d}{=} \ }
+\newcommand{\eqst}{=_{\rm{st}}}
+\newcommand{\approxd}{\stackrel{\rm d}{\approx}}
+\newcommand{\approxst}{\approx_{\rm st}}
+\newcommand{\simst}{\sim_{\rm{st}}}
+\newcommand{\lest}{\le_{\rm{st}}}
+\newcommand{\gest}{\ge_{\rm{st}}}
+\newcommand{\lecx}{\le_{\rm{cx}}}
+\newcommand{\gecx}{\ge_{\rm{cx}}}
+\newcommand{\leicx}{\le_{\rm{icx}}}
+\newcommand{\geicx}{\ge_{\rm{icx}}}
+\newcommand{\ledcx}{\le_{\rm{dcx}}}
+\newcommand{\gedcx}{\ge_{\rm{dcx}}}
+\newcommand{\leidcx}{\le_{\rm{idcx}}}
+\newcommand{\geidcx}{\ge_{\rm{idcx}}}
+\newcommand{\lecv}{\le_{\rm{cv}}}
+\newcommand{\gecv}{\ge_{\rm{cv}}}
+\newcommand{\leicv}{\le_{\rm{icv}}}
+\newcommand{\geicv}{\ge_{\rm{icv}}}
+\newcommand{\ledcv}{\le_{\rm{dcv}}}
+\newcommand{\gedcv}{\ge_{\rm{dcv}}}
+\newcommand{\leLt}{\le_{\rm{Lt}}}
+\newcommand{\geLt}{\ge_{\rm{Lt}}}
+\newcommand{\lesm}{\le_{\rm{sm}}}
+\newcommand{\gesm}{\ge_{\rm{sm}}}
+\newcommand{\leism}{\le_{\rm{ism}}}
+\newcommand{\geism}{\ge_{\rm{ism}}}
+\newcommand{\lec}{\le_{\rm{c}}}
+\newcommand{\gec}{\ge_{\rm{c}}}
+\newcommand{\isom}{\cong}
+
+% WIDE BINARY RELATIONS
+\newcommand{\weq}{\ = \ }
+\newcommand{\wne}{\ \ne \ }
+\newcommand{\wle}{\ \le \ }
+\newcommand{\wge}{\ \ge \ }
+\newcommand{\wles}{\ < \ }
+\newcommand{\wges}{\ > \ }
+\newcommand{\wsim}{\ \sim \ }
+\newcommand{\wlesim}{\ \lesssim \ }
+\newcommand{\wgesim}{\ \gtrsim \ }
+\newcommand{\wasymp}{\ \asymp \ }
+\newcommand{\wll}{\ \ll \ }
+\newcommand{\wgg}{\ \gg \ }
+\newcommand{\wapprox}{\ \approx \ }
+\newcommand{\wimplies}{\quad \implies \quad }
+\newcommand{\wapproxd}{\ \approxd \ }
+\newcommand{\wapproxst}{\ \approxst \ }
+
+\newcommand{\weqst}{\ =_{\rm{st}} \ }
+\newcommand{\wlest}{\ \le_{\rm{st}} \ }
+\newcommand{\wgest}{\ \ge_{\rm{st}} \ }
+\newcommand{\wprto}{\ \xrightarrow{\pr} \ }
+\newcommand{\wisom}{\ \isom \ }
+
+\newcommand{\wsubset}{\ \subset \ }
+\newcommand{\wsupset}{\ \supset \ }
+
+%stochastic
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\pr}{\mathbb{P}}
+\newcommand{\law}{\operatorname{Law}}
+\newcommand{\indep}{\perp\!\!\!\perp}
+\newcommand{\cond}{\, | \,}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\cov}{\operatorname{cov}}
+\newcommand{\Cor}{\operatorname{Cor}}
+\newcommand{\cor}{\operatorname{cor}}
+\newcommand{\logit}{\operatorname{logit}}
+% \newcommand{\weq}{\ = \ }
+% \newcommand{\wge}{\ \ge \ }
+% \newcommand{\wsim}{\ \sim \ }
+\newcommand{\MLE}{{\rm MLE}\xspace}
+\newcommand{\MAP}{{\rm MAP}\xspace}
+\newcommand{\SDP}{{\rm SDP}\xspace}
+\newcommand{\SBM}{{\sf SBM}\xspace}
+
+% CALLIGRAPHIC FONTS
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+
+% HAT
+\newcommand{\hA}{\hat{A}}
+\newcommand{\hB}{\hat{B}}
+\newcommand{\hC}{\hat{C}}
+\newcommand{\hD}{\hat{D}}
+\newcommand{\hE}{\hat{E}}
+\newcommand{\hF}{\hat{F}}
+\newcommand{\hG}{\hat{G}}
+\newcommand{\hH}{\hat{H}}
+\newcommand{\hI}{\hat{I}}
+\newcommand{\hJ}{\hat{J}}
+\newcommand{\hK}{\hat{K}}
+\newcommand{\hL}{\hat{L}}
+\newcommand{\hM}{\hat{M}}
+\newcommand{\hN}{\hat{N}}
+\newcommand{\hO}{\hat{O}}
+\newcommand{\hP}{\hat{P}}
+\newcommand{\hQ}{\hat{Q}}
+\newcommand{\hR}{\hat{R}}
+\newcommand{\hS}{\hat{S}}
+\newcommand{\hT}{\hat{T}}
+\newcommand{\hU}{\hat{U}}
+\newcommand{\hV}{\hat{V}}
+\newcommand{\hW}{\hat{W}}
+\newcommand{\hX}{\hat{X}}
+\newcommand{\hY}{\hat{Y}}
+\newcommand{\hZ}{\hat{Z}}
+
+\newcommand{\ha}{\hat{a}}
+\newcommand{\hb}{\hat{b}}
+\newcommand{\hc}{\hat{c}}
+\newcommand{\hd}{\hat{d}}
+\newcommand{\he}{\hat{e}}
+\newcommand{\hf}{\hat{f}}
+\newcommand{\hg}{\hat{g}}
+\newcommand{\hh}{\hat{h}}
+\newcommand{\hi}{\hat{i}}
+\newcommand{\hj}{\hat{j}}
+\newcommand{\hk}{\hat{k}}
+\newcommand{\hl}{\hat{l}}
+\newcommand{\hm}{\hat{m}}
+\newcommand{\hn}{\hat{n}}
+\newcommand{\ho}{\hat{o}}
+\newcommand{\hp}{\hat{p}}
+\newcommand{\hq}{\hat{q}}
+\newcommand{\hr}{\hat{r}}
+\newcommand{\hs}{\hat{s}}
+\newcommand{\hatt}{\hat{t}}
+\newcommand{\hu}{\hat{u}}
+\newcommand{\hv}{\hat{v}}
+\newcommand{\hw}{\hat{w}}
+\newcommand{\hx}{\hat{x}}
+\newcommand{\hy}{\hat{y}}
+\newcommand{\hz}{\hat{z}}
+
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\hgamma}{\hat{\gamma}}
+\newcommand{\hdelta}{\hat{\delta}}
+\newcommand{\hepsilon}{\hat{\epsilon}}
+\newcommand{\heta}{\hat{\eta}}
+\newcommand{\htheta}{\hat{\theta}}
+\newcommand{\hiota}{\hat{\iota}}
+\newcommand{\hkappa}{\hat{\kappa}}
+\newcommand{\hlambda}{\hat{\lambda}}
+\newcommand{\hmu}{\hat{\mu}}
+\newcommand{\hnu}{\hat{\nu}}
+\newcommand{\hxi}{\hat{\xi}}
+\newcommand{\hpi}{\hat{\pi}}
+\newcommand{\hupsilon}{\hat{\upsilon}}
+\newcommand{\hphi}{\hat{\phi}}
+\newcommand{\hpsi}{\hat{\psi}}
+\newcommand{\homega}{\hat{\omega}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\htau}{\hat{\tau}}
+\newcommand{\hrho}{\hat{\rho}}
+
+\newcommand{\hell}{\hat{\ell}}
+\newcommand{\KL}{ \mathrm{KL} }
+\newcommand{\kl}{ \mathrm{kl} }
+\newcommand{\bDelta}{ \bar{\Delta} }
+
+\newcommand{\newrm}{ \mathrm{new} }
+\newcommand{\oldrm}{ \mathrm{old} }
+\newcommand{\qr}{ \mathbb{Q} }
+\newcommand{\elbo}{ \mathrm{ELBO} }
+\newcommand{\Multi}{ \mathrm{Multi} }
+
+\newcommand{\CH}{ \mathrm{CH} }
+\newcommand{\ham}{ \mathrm{Ham} }
+\newcommand{\ace}{ \mathrm{loss} }
+
+\newcommand{\pimin}{ \pi_{\min} }
+\newcommand{\pimax}{ \pi_{\max} }
+
+\newcommand{\fin}{ f_{in} }
+\newcommand{\fout}{ f_{out} }
+\newcommand{\fpos}{ f^* }
+\newcommand{\gpos}{ g^* }
+\newcommand{\dren}{\operatorname{D}}
+\newcommand{\drenh}{\dren_{1/2}}
+\newcommand{\dkl}{\operatorname{d}_{\rm KL}}
+\newcommand{\dkls}{\operatorname{D}_{{\rm KL},2}}
+\newcommand{\vkl}{\operatorname{V}_{\rm KL}}
+\newcommand{\Hel}{\mathrm{Hel}}
+\newcommand{\new}[1]{\emph{{\color{defcolor}#1}}}
+\newcommand{\Renyi}{R{\'e}nyi\xspace}
+% TILDES
+\newcommand{\tA}{\tilde{A}}
+\newcommand{\tB}{\tilde{B}}
+\newcommand{\tC}{\tilde{C}}
+\newcommand{\tD}{\tilde{D}}
+\newcommand{\tE}{\tilde{E}}
+\newcommand{\tF}{\tilde{F}}
+\newcommand{\tG}{\tilde{G}}
+\newcommand{\tH}{\tilde{H}}
+\newcommand{\tI}{\tilde{I}}
+\newcommand{\tJ}{\tilde{J}}
+\newcommand{\tK}{\tilde{K}}
+\newcommand{\tL}{\tilde{L}}
+\newcommand{\tM}{\tilde{M}}
+\newcommand{\tN}{\tilde{N}}
+\newcommand{\tO}{\tilde{O}}
+\newcommand{\tP}{\tilde{P}}
+\newcommand{\tQ}{\tilde{Q}}
+\newcommand{\tR}{\tilde{R}}
+\newcommand{\tS}{\tilde{S}}
+\newcommand{\tT}{\tilde{T}}
+\newcommand{\tU}{\tilde{U}}
+\newcommand{\tV}{\tilde{V}}
+\newcommand{\tW}{\tilde{W}}
+\newcommand{\tX}{\tilde{X}}
+\newcommand{\tY}{\tilde{Y}}
+\newcommand{\tZ}{\tilde{Z}}
+
+\newcommand{\ta}{\tilde{a}}
+\newcommand{\tb}{\tilde{b}}
+\newcommand{\tc}{\tilde{c}}
+\newcommand{\td}{\tilde{d}}
+\newcommand{\te}{\tilde{e}}
+\newcommand{\tf}{\tilde{f}}
+\newcommand{\tg}{\tilde{g}}
+\newcommand{\tildeh}{\tilde{h}}
+\newcommand{\ti}{\tilde{i}}
+\newcommand{\tj}{\tilde{j}}
+\newcommand{\tk}{\tilde{k}}
+\newcommand{\tl}{\tilde{l}}
+\newcommand{\tm}{\tilde{m}}
+\newcommand{\tn}{\tilde{n}}
+\newcommand{\tildeo}{\tilde{o}}
+\newcommand{\tp}{\tilde{p}}
+\newcommand{\tq}{\tilde{q}}
+\newcommand{\tr}{\tilde{r}}
+\newcommand{\ts}{\tilde{s}}
+\newcommand{\tildet}{\tilde{t}}
+\newcommand{\tu}{\tilde{u}}
+\newcommand{\tv}{\tilde{v}}
+\newcommand{\tw}{\tilde{w}}
+\newcommand{\tx}{\tilde{x}}
+\newcommand{\ty}{\tilde{y}}
+\newcommand{\tz}{\tilde{z}}
+
+\newcommand{\talpha}{\tilde{\alpha}}
+\newcommand{\tbeta}{\tilde{\beta}}
+\newcommand{\tgamma}{\tilde{\gamma}}
+\newcommand{\tdelta}{\tilde{\delta}}
+\newcommand{\tepsilon}{\tilde{\epsilon}}
+\newcommand{\teta}{\tilde{\eta}}
+\newcommand{\ttheta}{\tilde{\theta}}
+\newcommand{\tiota}{\tilde{\iota}}
+\newcommand{\tkappa}{\tilde{\kappa}}
+\newcommand{\tlambda}{\tilde{\lambda}}
+\newcommand{\tmu}{\tilde{\mu}}
+\newcommand{\tnu}{\tilde{\nu}}
+\newcommand{\txi}{\tilde{\xi}}
+\newcommand{\tpi}{\tilde{\pi}}
+\newcommand{\tupsilon}{\tilde{\upsilon}}
+\newcommand{\tphi}{\tilde{\phi}}
+\newcommand{\tpsi}{\tilde{\psi}}
+\newcommand{\tomega}{\tilde{\omega}}
+\newcommand{\tsigma}{\tilde{\sigma}}
+
+\newcommand{\tell}{\tilde{\ell}}
+
+% PROBABILITY DISTRIBUTION SHORTCUTS
+\newcommand{\Ber}{\operatorname{Ber}}
+\newcommand{\Bin}{\operatorname{Bin}}
+\newcommand{\Poi}{\operatorname{Poi}}
+\newcommand{\Geo}{\operatorname{Geo}}
+\newcommand{\Uni}{\operatorname{Uni}}
+\newcommand{\Exp}{\operatorname{Exp}}
+\newcommand{\Erl}{\operatorname{Erl}}
+\newcommand{\Gam}{\operatorname{Gam}}
+\newcommand{\Nor}{\operatorname{Nor}}
+\newcommand{\Gum}{\operatorname{Gum}}
+\newcommand{\Fre}{\operatorname{Fre}}
+\newcommand{\Wei}{\operatorname{Wei}}
+\newcommand{\Par}{\operatorname{Par}}
+\newcommand{\MBer}{\operatorname{MBer}}
+\newcommand{\MBin}{\operatorname{MBin}}
+\newcommand{\MPoi}{\operatorname{MPoi}}
+
+% GENERAL MATH
+\newcommand{\e}{\mathrm{e}}% Le e de l'exponentielle
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}} % 
